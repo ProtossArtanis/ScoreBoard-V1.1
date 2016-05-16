@@ -52,35 +52,15 @@ class ViewController: UIViewController {
     @IBAction func AscoreAdd(sender: AnyObject) {
         Ascore = Ascore + 1
         AOutResult.text = ("\(Ascore)")
-        if (Ascore == 11){
-            Ascore_2 = Ascore_2 + 1
-            AOutResult_2.text = ("\(Ascore_2)")
-            Ascore = 0
-            AOutResult.text = ("\(Ascore)")
-            Bscore = 0
-            BOutResult.text = ("\(Bscore)")
-        }
-        else{
-            
-        }
+        
+        
         saveScore()
     }
     
     @IBAction func BscoreAdd(sender: AnyObject) {
         Bscore = Bscore + 1
         BOutResult.text = ("\(Bscore)")
-        if(Bscore == 11){
-            Bscore_2 = Bscore_2 + 1
-            BOutResult_2.text = ("\(Bscore_2)")
-            Bscore = 0
-            BOutResult.text = ("\(Bscore)")
-            Ascore = 0
-            AOutResult.text = ("\(Ascore)")
-            
-        }
-        else{
         
-        }
         saveScore()
     }
     
@@ -90,8 +70,8 @@ class ViewController: UIViewController {
         //获取数据库实例
         db = SQLiteDB.sharedInstance()
         //如果表还不存在则创建表
-        db.execute("create table if not exists p_contestant(uid integer primary key,acontestantname varchar(20),ascore varchar(10), ascore_2 vachar(10))")
-         db.execute("create table if not exists p_contestant02(uid integer primary key,bcontestantname varchar(20),bscore varchar(10), bscore_2 vachar(10))")
+        db.execute("create table if not exists p_contestant(acontestantname varchar(20),ascore varchar(10), ascore_2 vachar(10))")
+         db.execute("create table if not exists p_contestant02(bcontestantname varchar(20),bscore varchar(10), bscore_2 vachar(10))")
         //如果有数据则加载
         initUser()
     }
@@ -129,12 +109,14 @@ class ViewController: UIViewController {
         let Bscore_2 = self.BOutResult_2.text!
         //插入数据库，这里用到了esc字符编码函数，其实是调用bridge.m实现的
         let sql = "insert into p_contestant(acontestantname,ascore,ascore_2) values('\(Aname)','\(Ascore)','\(Ascore_2)')"
-        let sql_2 = "insert into p_contestant02(bcontestantname,bscore,bscore_2) values('\(Bname)','\(Bscore)','\(Bscore_2)')"
+        let sql02 = "insert into p_contestant02(bcontestantname,bscore,bscore_2) values('\(Bname)','\(Bscore)','\(Bscore_2)')"
         print("sql: \(sql)")
-        print("sql:\(sql_2)")
+        print("sql:\(sql02)")
         //通过封装的方法执行sql
         let result = db.execute(sql)
+        let result02 = db.execute(sql02)
         print(result)
+        print(result02)
     }
     
     override func didReceiveMemoryWarning() {
