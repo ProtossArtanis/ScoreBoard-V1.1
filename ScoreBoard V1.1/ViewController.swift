@@ -46,12 +46,15 @@ class ViewController: UIViewController {
         la1.text=String(x)
         la2.text=String(y)
     }
+    
+    
     @IBAction func start(sender: UIButton) {
         time=NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("dec"), userInfo: nil, repeats: true)
     }
     @IBAction func AscoreAdd(sender: AnyObject) {
         Ascore = Ascore + 1
         AOutResult.text = ("\(Ascore)")
+        
         
         
         saveScore()
