@@ -54,8 +54,7 @@ class ViewController: UIViewController {
     @IBAction func AscoreAdd(sender: AnyObject) {
         Ascore = Ascore + 1
         AOutResult.text = ("\(Ascore)")
-        
-        
+        var score = 0
         
         saveScore()
     }
