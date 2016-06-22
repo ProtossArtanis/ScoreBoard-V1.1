@@ -48,20 +48,58 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func Restart(sender: AnyObject) {
+        Ascore = 0
+        Bscore = 0
+        Ascore_2 = 0
+        Bscore_2 = 0
+        AOutResult.text = ("\(Ascore)")
+        AOutResult_2.text = ("\(Ascore_2)")
+        BOutResult.text = ("\(Bscore)")
+        BOutResult_2.text = ("\(Bscore_2)")
+    }
     @IBAction func start(sender: UIButton) {
         time=NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("dec"), userInfo: nil, repeats: true)
     }
     @IBAction func AscoreAdd(sender: AnyObject) {
         Ascore = Ascore + 1
         AOutResult.text = ("\(Ascore)")
-        var score = 0
-        
+        if(Ascore == 11 && Bscore < 10){
+            Ascore_2 = Ascore_2 + 1
+            AOutResult_2.text = ("\(Ascore_2)")
+            Ascore = 0
+            AOutResult.text = ("\(Ascore)")
+            Bscore = 0
+            BOutResult.text = ("\(Bscore)")
+        } else if(Ascore >= 10 && Bscore >= 10 && Ascore - Bscore >= 2){
+            Ascore_2 = Ascore_2 + 1
+            AOutResult_2.text = ("\(Ascore_2)")
+            Ascore = 0
+            AOutResult.text = ("\(Ascore)")
+            Bscore = 0
+            BOutResult.text = ("\(Bscore)")
+        }
         saveScore()
     }
     
     @IBAction func BscoreAdd(sender: AnyObject) {
         Bscore = Bscore + 1
         BOutResult.text = ("\(Bscore)")
+        if(Bscore == 11 && Ascore < 10){
+            Bscore_2 = Bscore_2 + 1
+            BOutResult_2.text = ("\(Bscore_2)")
+            Ascore = 0
+            AOutResult.text = ("\(Ascore)")
+            Bscore = 0
+            BOutResult.text = ("\(Bscore)")
+        } else if(Ascore >= 10 && Bscore >= 10 && Bscore - Ascore >= 2){
+            Bscore_2 = Bscore_2 + 1
+            BOutResult_2.text = ("\(Bscore_2)")
+            Ascore = 0
+            AOutResult.text = ("\(Ascore)")
+            Bscore = 0
+            BOutResult.text = ("\(Bscore)")
+        }
         
         saveScore()
     }
@@ -85,18 +123,18 @@ class ViewController: UIViewController {
         if data.count > 0 {
             //获取最后一行数据显示
             let acontestant = data[data.count - 1]
-            AContestantName.text = acontestant["acontestname"] as? String
-            AOutResult.text = acontestant["ascore"] as? String
-            AOutResult_2.text = acontestant["ascore_2"] as? String
+            AContestantName?.text = acontestant["acontestname"] as? String
+            AOutResult?.text = acontestant["ascore"] as? String
+            AOutResult_2?.text = acontestant["ascore_2"] as? String
            
             
         }
         if data_2.count > 0 {
             //获取最后一行数据显示
             let bcontestant = data_2[data_2.count - 1]
-            BContestantName.text = bcontestant["bcontestname"] as? String
-            BOutResult.text = bcontestant["bscore"] as? String
-            BOutResult_2.text = bcontestant["bscore_2"] as? String
+            BContestantName?.text = bcontestant["bcontestname"] as? String
+            BOutResult?.text = bcontestant["bscore"] as? String
+            BOutResult_2?.text = bcontestant["bscore_2"] as? String
             
         }
     }

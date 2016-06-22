@@ -20,6 +20,7 @@
 		82092A751CDF21B30077503D /* SQLTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82092A721CDF21B30077503D /* SQLTable.swift */; };
 		82092A761CDF21B30077503D /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82092A731CDF21B30077503D /* String-Extras.swift */; };
 		82092A781CDF21C70077503D /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 82092A771CDF21C70077503D /* libsqlite3.0.tbd */; };
+		820B360A1D19113800F022EE /* mianView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820B36091D19113800F022EE /* mianView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		82092A731CDF21B30077503D /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String-Extras.swift"; path = "SQLiteDB/String-Extras.swift"; sourceTree = "<group>"; };
 		82092A771CDF21C70077503D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		82092A791CDF21F80077503D /* ScoreBoard V1.1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScoreBoard V1.1-Bridging-Header.h"; sourceTree = "<group>"; };
+		820B36091D19113800F022EE /* mianView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mianView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				82092A4C1CDF21630077503D /* Info.plist */,
 				82092A441CDF21630077503D /* ScoreBoard_V1_1.xcdatamodeld */,
 				82092A791CDF21F80077503D /* ScoreBoard V1.1-Bridging-Header.h */,
+				820B36091D19113800F022EE /* mianView.swift */,
 			);
 			path = "ScoreBoard V1.1";
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				82092A761CDF21B30077503D /* String-Extras.swift in Sources */,
 				82092A741CDF21B30077503D /* SQLiteDB.swift in Sources */,
 				82092A3E1CDF21630077503D /* AppDelegate.swift in Sources */,
+				820B360A1D19113800F022EE /* mianView.swift in Sources */,
 				82092A461CDF21630077503D /* ScoreBoard_V1_1.xcdatamodeld in Sources */,
 				82092A751CDF21B30077503D /* SQLTable.swift in Sources */,
 			);
